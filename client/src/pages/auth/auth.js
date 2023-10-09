@@ -12,6 +12,8 @@ const client_Id=process.env.REACT_APP_ClientId;
 const googleApi=process.env.REACT_APP_googleApi;
 const normalApi=process.env.REACT_APP_normalApi;
 const login=process.env.REACT_APP_normalLog;
+const base_url = process.env.REACT_APP_baseurl;
+
 
 export const Login=()=>{
     const [logUsername,setLogUsername]=useState("");
@@ -36,7 +38,7 @@ export const Login=()=>{
             logPass
         }
 
-        await axios.post(`http://localhost:3001/${login}`,user)
+        await axios.post(`${base_url}/${login}`,user)
         .then((res)=>{
             setCookies("access_token",res.data.token,{path:"/",domain:"localhost"});
             window.localStorage.setItem("userID",res.data.userId);
@@ -58,10 +60,10 @@ export const Login=()=>{
             profilePic:decoded.picture
         }
 
-        await axios.post(`http://localhost:3001/${googleApi}`,user)
+        await axios.post(`${base_url}/${googleApi}`,user)
         .then((res)=>{
 
-            setCookies("access_token", res.data.token, { path: "/", domain: "localhost" })
+            setCookies("access_token", res.data.token, { path: "/", domain: base_url })
             window.localStorage.setItem("userID", res.data.userId);
             navigate("/");  
 
@@ -148,7 +150,7 @@ export const SignUP=()=>{
     const formsubmit=async(e)=>{
         e.preventDefault();
 
-        await axios.post(`http://localhost:3001/${normalApi}`,{logUsername,logPass})
+        await axios.post(`${base_url}/${normalApi}`,{logUsername,logPass})
         .then((res)=>{
             if(res.data.success===true){
                 alert(res.data.message+" Login Now !! Redirecting... ");
@@ -172,10 +174,10 @@ export const SignUP=()=>{
             profilePic:decoded.picture
         }
 
-        await axios.post(`http://localhost:3001/${googleApi}`,user)
+        await axios.post(`${base_url}/${googleApi}`,user)
         .then((res)=>{
 
-            setCookies("access_token", res.data.token, { path: "/", domain: "localhost" })
+            setCookies("access_token", res.data.token, { path: "/", domain: base_url })
             window.localStorage.setItem("userID", res.data.userId);
             navigate("/");
         })

@@ -1,0 +1,4 @@
+REACT_APP_ClientId=493011974924-hdornje4m7v77aq8ftf1o5pfcm3518do.apps.googleusercontent.com
+REACT_APP_googleApi=pict0/addGoogleUser
+REACT_APP_normalApi=pict0/addUser
+REACT_APP_normalLog=pict0/login
