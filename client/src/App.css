@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+body {
+  /* background-color: #0a68bb; */
+  background-image: url('./images/LibBackground.jpg');
+  background-size : cover;
+}
+
+.page-body{
+  margin-top: 2vh;  
+  height:80vh;
+  width:95vw;
+  background: linear-gradient(rgba(220,220,255,0.4) 85%, rgba(255,255,255,0.5) 100%);
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+}

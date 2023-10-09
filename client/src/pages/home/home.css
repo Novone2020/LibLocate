@@ -1,0 +1,109 @@
+.page-body{
+    margin-top: 2vh;
+    height:85vh;
+    width:95vw;
+    background: linear-gradient(rgba(220,220,255,0.4) 85%, rgba(255,255,255,0.5) 100%);
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+/* removeing scrollbar = making it invisible*/
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+.home-screen{
+    display: flex;
+    margin-top: 1.5vh;
+    width: 100;
+    height: 87vh;
+    /* border: white 2px solid ; */
+}
+
+.home-inputs{
+    padding:6px;
+    margin-bottom: 2vh;
+}
+
+.file-button{
+    height: 6vh;
+    width: 18vw;
+    margin-bottom: 2vh;
+}
+
+.home-post-area{
+    margin: 1vh;
+    height: 100;
+    width: 70.5vw;
+    border: white 2px solid;
+
+    /* scroll-bar thing */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.home-share-area{
+    margin: 1vh;
+    border: white 2px solid;
+    height: 73vh;
+    width: 27vw;
+    border-radius: 5px;
+}
+
+.post-adjust{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.posts{
+    /* background-color: white; */
+    background: linear-gradient(rgba(220,220,255,0.4) 85%, rgba(255,255,255,0.5) 100%);
+    border-radius: 5px;
+    border: solid white 2px;
+    padding: 1vh;
+    margin:2vh;
+    width:25vw;
+    height:50vh;
+}
+
+/* .post p{
+    color: white;
+} */
+
+.post-title{
+    height: 6vh;
+    width: 18vw;
+    border-radius: 5px;
+}
+
+.post-description{
+    height: 25vh;
+    width: 18vw;
+    border-radius: 5px;
+}
+
+.form-adjust{
+    background: none;
+    border: none;
+}
+
+/* click-post */
+
+.click-post{
+    position: relative; 
+    border: 2px solid white;
+    margin-top: 5vh;
+    border-radius: 15px;
+    height: 70vh;
+    width: 50vw;
+    background: linear-gradient(rgba(220,220,255,0.4) 85%, rgba(255,255,255,0.5) 100%);
+}
+
+.lefty{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1vh;
+}
