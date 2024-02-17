@@ -1,3 +1,0 @@
-PORT=3001
-link_DB="mongodb+srv://liblocate:pictsathi@pictcluster.dejcxpo.mongodb.net/library?retryWrites=true&w=majority"
-apiStart="/pict0"
