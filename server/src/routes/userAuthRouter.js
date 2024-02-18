@@ -1,35 +1,14 @@
 import express from "express";
-import cors from "cors";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 import {userModel} from "../models/googleusers.js";
 import {normalUserModel} from "../models/users.js";
 
-const app=express();
-
-app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-    exposedHeaders: ['Cross-Origin-Opener-Policy'],
-    optionsSuccessStatus: 200
-}));
-
 const userAuthRouter=express.Router();
 
 userAuthRouter.post("/addGoogleUser",async(req,res)=>{
     const user=req.body;
-    // console.log(user);
-    
-    // {
-    //     _id: '',
-    //     email: '@gmail.com',
-    //     username: 'novone',
-    //     profilePic: ''    
-    // }
-
     const profilePic=user.profilePic;
     const username=user.username;
 

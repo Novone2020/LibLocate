@@ -34,22 +34,22 @@ function App() {
 
             <Routes>
 
-              <Route path='/' element={<ProtectedRoute> <Home/> </ProtectedRoute>}/>
+              <Route path='/' element={ <Home/>}/>
               <Route path='/login' element={<Login/>}/>
               {/* <Route path='/signup' element={<SignUP/>}/> */}
-              <Route path='/locate' element={<ProtectedRoute> <Locate/> </ProtectedRoute>}/>
-              <Route path='/post/:postId' element={<ProtectedRoute> <HomePost/> </ProtectedRoute>}/>
+              <Route path='/locate' element={ <Locate/>}/>
+              <Route path='/post/:postId' element={ <HomePost/>}/>
 
               {/* Boxes */}
-              <Route path='/boxes/Boxes' element={<ProtectedRoute> <Boxes/> </ProtectedRoute>}/>
-              <Route path='/boxes/BoxesBack' element={<ProtectedRoute> <BoxesBack/> </ProtectedRoute>}/>
-              <Route path='/boxes/FrontComputers' element={<ProtectedRoute> <FrontComputers/> </ProtectedRoute>}/>
+              <Route path='/boxes/Boxes' element={ <Boxes/>}/>
+              <Route path='/boxes/BoxesBack' element={ <BoxesBack/>}/>
+              <Route path='/boxes/FrontComputers' element={ <FrontComputers/>}/>
               {/* Boxes */}
 
               {/* Tables */}
-              <Route path='/tables/NonElectric' element={<ProtectedRoute> <NonElectric/> </ProtectedRoute>}/>
-              <Route path='/tables/BackWall' element={<ProtectedRoute> <BackWall/> </ProtectedRoute>}/>
-              <Route path='/tables/RightWall' element={<ProtectedRoute> <RightWall/> </ProtectedRoute>}/>
+              <Route path='/tables/NonElectric' element={ <NonElectric/>}/>
+              <Route path='/tables/BackWall' element={ <BackWall/>}/>
+              <Route path='/tables/RightWall' element={ <RightWall/>}/>
               {/* Tables */}
 
             </Routes>

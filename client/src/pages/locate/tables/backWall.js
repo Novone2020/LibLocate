@@ -9,7 +9,7 @@ export const BackWall = () => {
 
   const autofetch = () => {
     axios
-      .get("http://localhost:3001/pict0/tableWall")
+      .get("https://liblocate-server.onrender.com/pict0/tableWall")
       .then((res) => {
         setData(res.data);
       })
@@ -24,7 +24,7 @@ export const BackWall = () => {
 
   const updateWall = async (id) => {
     await axios
-      .patch(`http://localhost:3001/pict0/tableWall/${id}`, {
+      .patch(`https://liblocate-server.onrender.com/pict0/tableWall/${id}`, {
         user: localStorage.userID,
       })
       .then((res) => {

@@ -3,98 +3,119 @@ import axios from "axios";
 import { CommonNav } from "../commonNav.js";
 
 export const BoxesBack = () => {
-    const [data, setData] = useState([]);
-        const [table,setTable] = useState([]);
-    
-        const autofetch=()=>{
-            axios.get("http://localhost:3001/pict0/backboxes")
-            .then((res) => {
-                setData(res.data);
-            })
-            .catch((err)=>{
-                console.log(err);
-            });
-    
-            axios.get("http://localhost:3001/pict0/backBoxesTables")
-            .then((res)=>{
-                setTable(res.data);
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
+  const [data, setData] = useState([]);
+  const [table, setTable] = useState([]);
+
+  const autofetch = () => {
+    axios
+      .get("https://liblocate-server.onrender.com/pict0/backboxes")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .get("https://liblocate-server.onrender.com/pict0/backBoxesTables")
+      .then((res) => {
+        setTable(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    autofetch();
+  }, []);
+
+  const updateField = async (id) => {
+    await axios
+      .patch(`https://liblocate-server.onrender.com/pict0/backboxes/${id}`, {
+        user: localStorage.userID,
+      })
+      .then((res) => {
+        if (res.data.done) autofetch();
+        else {
+          alert("unauthorized user modifying!!");
         }
-    
-        useEffect(() => {
-            autofetch();
-        }, [])
-    
-        const updateField=async(id)=>{
-            await axios.patch(`http://localhost:3001/pict0/backboxes/${id}`,{user:localStorage.userID})
-            .then((res)=>{
-              if(res.data.done) autofetch();
-              else {
-                alert("unauthorized user modifying!!");
-              }
-            })
-            .catch((err)=>{
-              console.log(err);
-            })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  // ********************************TABLE modifications********************************
+
+  const updateRight = async (id) => {
+    await axios
+      .patch(
+        `https://liblocate-server.onrender.com/pict0/backBoxesTables/right/${id}`,
+        { user: localStorage.userID }
+      )
+      .then((res) => {
+        if (res.data.done) autofetch();
+        else {
+          alert("unauthorized user modifying!!");
         }
-    
-        // ********************************TABLE modifications********************************
-    
-        const updateRight=async(id)=>{
-            await axios.patch(`http://localhost:3001/pict0/backBoxesTables/right/${id}`,{user:localStorage.userID})
-            .then((res)=>{
-              if(res.data.done) autofetch();
-              else {
-                alert("unauthorized user modifying!!");
-              }
-            })
-            .catch((err)=>{
-              console.log(err);
-            })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const updateLeft = async (id) => {
+    await axios
+      .patch(
+        `https://liblocate-server.onrender.com/pict0/backBoxesTables/left/${id}`,
+        { user: localStorage.userID }
+      )
+      .then((res) => {
+        if (res.data.done) autofetch();
+        else {
+          alert("unauthorized user modifying!!");
         }
-    
-        const updateLeft=async(id)=>{
-            await axios.patch(`http://localhost:3001/pict0/backBoxesTables/left/${id}`,{user:localStorage.userID})
-            .then((res)=>{
-              if(res.data.done) autofetch();
-              else {
-                alert("unauthorized user modifying!!");
-              }
-            })
-            .catch((err)=>{
-              console.log(err);
-            })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const updateTop = async (id) => {
+    await axios
+      .patch(
+        `https://liblocate-server.onrender.com/pict0/backBoxesTables/top/${id}`,
+        { user: localStorage.userID }
+      )
+      .then((res) => {
+        if (res.data.done) autofetch();
+        else {
+          alert("unauthorized user modifying!!");
         }
-    
-        const updateTop=async(id)=>{
-            await axios.patch(`http://localhost:3001/pict0/backBoxesTables/top/${id}`,{user:localStorage.userID})
-            .then((res)=>{
-              if(res.data.done) autofetch();
-              else {
-                alert("unauthorized user modifying!!");
-              }
-            })
-            .catch((err)=>{
-              console.log(err);
-            })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const updateBottom = async (id) => {
+    await axios
+      .patch(
+        `https://liblocate-server.onrender.com/pict0/backBoxesTables/bottom/${id}`,
+        { user: localStorage.userID }
+      )
+      .then((res) => {
+        if (res.data.done) autofetch();
+        else {
+          alert("unauthorized user modifying!!");
         }
-    
-        const updateBottom=async(id)=>{
-            await axios.patch(`http://localhost:3001/pict0/backBoxesTables/bottom/${id}`,{user:localStorage.userID})
-            .then((res)=>{
-              if(res.data.done) autofetch();
-              else {
-                alert("unauthorized user modifying!!");
-              }
-            })
-            .catch((err)=>{
-              console.log(err);
-            })
-        }
-        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="centering" style={{ height: "89vh", width: "100vw" }}>
