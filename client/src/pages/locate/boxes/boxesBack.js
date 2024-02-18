@@ -94,7 +94,7 @@ export const BoxesBack = () => {
               console.log(err);
             })
         }
-
+        
   return (
     <>
       <div className="centering" style={{ height: "89vh", width: "100vw" }}>
