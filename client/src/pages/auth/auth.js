@@ -40,7 +40,7 @@ export const Login = () => {
       .then((res) => {
         setCookies("access_token", res.data.token, {
           path: "/",
-          domain: "localhost",
+          domain: "liblocate-frontend.onrender.com",
         });
         window.localStorage.setItem("userID", res.data.userId);
         navigate("/");
@@ -67,7 +67,7 @@ export const Login = () => {
         console.log(res);
         setCookies("access_token", res.data.token, {
           path: "/",
-          domain: "localhost",
+          domain: "liblocate-frontend.onrender.com",
         });
         window.localStorage.setItem("userID", res.data.userId);
         navigate("/");

@@ -17,7 +17,7 @@ export const Navbar=()=>{
       }, [cookies]);
 
       const logout = () => {
-        removeCookie("access_token", { path: "/", domain: "localhost" });
+        removeCookie("access_token", { path: "/", domain: "liblocate-frontend.onrender.com" });
         localStorage.removeItem("userID");
         navigate("/login");
       };
