@@ -1,7 +1,7 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google"; // googleLogout not used
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -16,16 +16,22 @@ export const Login = () => {
   const [logUsername] = useState("");
   const [logPass] = useState("");
   const [, setCookies] = useCookies(["access_token"]);
+  const [ready, setReady] = useState(false);
 
   const navigate = useNavigate();
-  const ref = useRef(null);
   const user = false;
 
   useEffect(() => {
-    if (ref.current) {
-      return ref.current?.focus();
-    }
-  }, [ref]);
+    axios
+      .get("https://liblocate-server.onrender.com/ping")
+      .then((res) => {
+        console.log(res.data.ready);
+        setReady(res.data.ready);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const logSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +59,7 @@ export const Login = () => {
 
   const signed = async (res) => {
     const decoded = await jwt_decode(res.credential);
-    console.log(decoded);
+    // console.log(decoded);
     const user = {
       _id: decoded.sub,
       email: decoded.email,
@@ -64,7 +70,6 @@ export const Login = () => {
     await axios
       .post(`https://liblocate-server.onrender.com/${googleApi}`, user)
       .then((res) => {
-        console.log(res);
         setCookies("access_token", res.data.token, {
           path: "/",
           domain: "liblocate-frontend.onrender.com",
@@ -102,11 +107,24 @@ export const Login = () => {
               </center>
             </div>
           )}
-
-          <br />
-          <h3 className="fw-bold">
-            For Now Functionality are limited to Gmail Id only
-          </h3>
+          <hr />
+          {ready ? (
+            <>
+              <h4 className="fw-bold">
+                Functionality are limited to Gmail only.
+              </h4>
+              <button className="btn btn-success fw-bold">
+                Server Running
+              </button>
+            </>
+          ) : (
+            <>
+              <h4 className="fw-bold">Server is not running yet</h4>
+              <button className="btn btn-danger fw-bold">
+                Wake up the Server
+              </button>
+            </>
+          )}
         </form>
       </GoogleOAuthProvider>
     </div>
